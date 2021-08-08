@@ -89,3 +89,8 @@ Start the local development server
 ## UseCase
 
 ![alt text](https://github.com/Chico-hernando/tes_pilarmedia/blob/main/public/image/tes_pilarmedia.jpg)
+
+## API Documentation
+
+<a href="https://documenter.getpostman.com/view/10004593/TzskEi6R"><b>Documentation</b></a>
+
