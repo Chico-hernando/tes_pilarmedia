@@ -88,4 +88,4 @@ Start the local development server
 
 ## UseCase
 
-![alt text](https://github.com/Chico-hernando/tes_pilarmedia/public/image/tes_pilarmedia.jpg)
+![alt text](https://github.com/Chico-hernando/tes_pilarmedia/blob/main/public/image/tes_pilarmedia.jpg)
