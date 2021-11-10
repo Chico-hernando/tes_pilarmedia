@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Attendance;
+namespace App\Http\Controllers\Api\Attendance;
 
 use App\Http\Controllers\Controller;
 use App\Models\Attendance;
@@ -15,12 +15,12 @@ class AttendanceController extends Controller
         if ($request->from == null && $request->to == null){
             $data = Attendance::join('users','users.id','=','attendance.user_id')
                 ->join('attendance_detail','attendance_detail.id','=','attendance.status')
-                ->select('users.name','attendance.*','attendance_detail.name AS status')->get();
+                ->select('users.name','attendance.*','attendance_detail.id AS status_id','attendance_detail.name AS status')->get();
         }else{
             $data = Attendance::whereBetween('attendance.created_at',[$request->from,$request->to])
                 ->join('users','users.id','=','attendance.user_id')
                 ->join('attendance_detail','attendance_detail.id','=','attendance.status')
-                ->select('users.name','attendance.*','attendance_detail.name AS status')->get();
+                ->select('users.name','attendance.*','attendance_detail.id AS status_id','attendance_detail.name AS status')->get();
         }
 
         if (!$data) {
@@ -35,12 +35,12 @@ class AttendanceController extends Controller
             $data = Attendance::where('user_id',$id)
                 ->join('users','users.id','=','attendance.user_id')
                 ->join('attendance_detail','attendance_detail.id','=','attendance.status')
-                ->select('users.name','attendance.*','attendance_detail.name AS status')->get();
+                ->select('users.name','attendance.*','attendance_detail.id AS status_id','attendance_detail.name AS status')->get();
         }else{
             $data = Attendance::whereBetween('attendance.created_at',[$request->from,$request->to])
                 ->join('users','users.id','=','attendance.user_id')
                 ->join('attendance_detail','attendance_detail.id','=','attendance.status')
-                ->select('users.name','attendance.*','attendance_detail.name AS status')
+                ->select('users.name','attendance.*','attendance_detail.id AS status_id','attendance_detail.name AS status')
                 ->where('user_id',$id)->get();
         }
 

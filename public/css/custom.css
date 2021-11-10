@@ -1,0 +1,21 @@
+
+
+.navbar-vertical.navbar-expand-md.fixed-left
+{
+    left: 0;
+
+    border-width: 0 1px 0 0;
+}
+.headerFont {
+    color: white;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
+}
