@@ -18,14 +18,16 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('users','User\UserController@getUser');
-Route::post('users','User\UserController@createUser');
-Route::put('users/{id}','User\UserController@updateUser');
-Route::delete('users/{id}','User\UserController@deleteUser');
+Route::get('searchToken','Api\User\UserController@getToken');
+Route::post('login','Api\User\UserController@login');
+Route::get('users','Api\User\UserController@getUser');
+Route::post('users','Api\User\UserController@createUser');
+Route::put('users/{id}','Api\User\UserController@updateUser');
+Route::delete('users/{id}','Api\User\UserController@deleteUser');
 
-Route::get('users/{id}/attendance','Attendance\AttendanceController@getAttendanceById');
-Route::post('users/{id}/attendance/in','Attendance\AttendanceController@createAttendance');
-Route::post('users/{id}/attendance/out','Attendance\AttendanceController@outAttendance');
-Route::post('users/{id}/attendance/permission','Attendance\AttendanceController@createPermission');
-Route::get('attendance','Attendance\AttendanceController@getAttendanceAll');
-Route::put('attendance','Attendance\AttendanceController@updateAttendance');
+Route::get('users/{id}/attendance','Api\Attendance\AttendanceController@getAttendanceById');
+Route::post('users/{id}/attendance/in','Api\Attendance\AttendanceController@createAttendance');
+Route::post('users/{id}/attendance/out','Api\Attendance\AttendanceController@outAttendance');
+Route::post('users/{id}/attendance/permission','Api\Attendance\AttendanceController@createPermission');
+Route::get('attendance','Api\Attendance\AttendanceController@getAttendanceAll');
+Route::put('attendance','Api\Attendance\AttendanceController@updateAttendance');
